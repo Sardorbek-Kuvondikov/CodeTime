@@ -12,6 +12,8 @@
     />
   </head>
   <body>
+    <canvas class="bg-canvas" id="bgCanvas" aria-hidden="true"></canvas>
+
     <header class="site-header">
       <div class="container header-inner">
         <a class="logo" href="#">
@@ -19,19 +21,102 @@
           <span>CodeTime</span>
         </a>
 
-        <nav class="nav" aria-label="Asosiy menu">
-          <a href="#courses">Kurslar</a>
-          <a href="#advantages">Afzalliklar</a>
-          <a href="#results">Natijalar</a>
-          <a href="#contact">Aloqa</a>
-        </nav>
+        <div class="header-actions">
+          <div class="nav-select">
+            <button
+              class="nav-trigger"
+              type="button"
+              aria-expanded="false"
+              aria-label="Bo'lim tanlash"
+            >
+              <span class="selected-nav">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Kurslar</span>
+              </span>
+              <i class="fa-solid fa-chevron-down nav-arrow"></i>
+            </button>
 
-        <a class="header-cta" href="#contact">
-          <i class="fa-solid fa-phone"></i>
-          Bog'lanish
-        </a>
+            <div class="nav-dropdown" aria-label="Sayt bo'limlari">
+              <a class="nav-option active" href="#courses" data-label="Kurslar">
+                <i class="fa-solid fa-layer-group"></i>
+                Kurslar
+              </a>
+              <a class="nav-option" href="#advantages" data-label="Afzalliklar">
+                <i class="fa-solid fa-star"></i>
+                Afzalliklar
+              </a>
+              <a class="nav-option" href="#results" data-label="Natijalar">
+                <i class="fa-solid fa-chart-line"></i>
+                Natijalar
+              </a>
+              <a class="nav-option" href="#contact" data-label="Bog'lanish">
+                <i class="fa-solid fa-paper-plane"></i>
+                Bog'lanish
+              </a>
+            </div>
+          </div>
+
+          <a class="header-cta" href="tel:+998771867766">
+            <i class="fa-solid fa-phone"></i>
+            Aloqa
+          </a>
+
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Menyuni ochish"
+            aria-controls="mobileSidebar"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
       </div>
     </header>
+
+    <div class="sidebar-overlay" data-close-sidebar></div>
+    <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Mobil menu">
+      <div class="sidebar-head">
+        <a class="logo" href="#">
+          <span class="logo-icon"><i class="fa-solid fa-code"></i></span>
+          <span>CodeTime</span>
+        </a>
+        <button class="sidebar-close" type="button" aria-label="Menyuni yopish">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Mobil bo'limlar">
+        <a href="#courses"><i class="fa-solid fa-layer-group"></i>Kurslar</a>
+        <a href="#advantages"><i class="fa-solid fa-star"></i>Afzalliklar</a>
+        <a href="#results"><i class="fa-solid fa-chart-line"></i>Natijalar</a>
+        <a href="#contact"><i class="fa-solid fa-paper-plane"></i>Bog'lanish</a>
+      </nav>
+
+      <a class="sidebar-cta" href="tel:+998771867766">
+        <i class="fa-solid fa-phone"></i>
+        Aloqa
+      </a>
+    </aside>
+
+    <nav class="mobile-bottom-nav" aria-label="Telefon menyusi">
+      <a class="bottom-nav-item active" href="#courses">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>Kurslar</span>
+      </a>
+      <a class="bottom-nav-item" href="#advantages">
+        <i class="fa-solid fa-star"></i>
+        <span>Afzalliklar</span>
+      </a>
+      <a class="bottom-nav-item" href="#results">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Natijalar</span>
+      </a>
+      <a class="bottom-nav-item" href="#contact">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>Bog'lanish</span>
+      </a>
+    </nav>
 
     <main>
       <section class="hero">
@@ -43,19 +128,19 @@
             </span>
             <h1>CodeTime IT Academy</h1>
             <p>
-              Dasturlash, frontend va raqamli kasblarni amaliy loyiha orqali
+              Dasturlash, web va raqamli kasblarni amaliy loyiha orqali
               o'rganing. Har bir dars real vazifa, mentor fikri va portfolio
               uchun tayyor ish bilan mustahkamlanadi.
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#contact">
+              <a
+                class="btn btn-primary"
+                target="_blank"
+                href="https://t.me/codetime_admin"
+              >
                 <i class="fa-solid fa-paper-plane"></i>
                 Kursga yozilish
-              </a>
-              <a class="btn btn-secondary" href="#courses">
-                <i class="fa-solid fa-layer-group"></i>
-                Kurslarni ko'rish
               </a>
             </div>
 
@@ -65,7 +150,7 @@
                 <span>bitiruvchi</span>
               </div>
               <div>
-                <strong>8</strong>
+                <strong>4</strong>
                 <span>amaliy kurs</span>
               </div>
               <div>
@@ -81,9 +166,9 @@
               alt="Kompyuterda birga dars qilayotgan talabalar"
             />
             <div class="schedule-card">
-              <span><i class="fa-solid fa-calendar-check"></i> Yangi guruh</span>
-              <strong>15-iyun</strong>
-              <p>Frontend Foundation</p>
+              <span><i class="fa-solid fa-gift"></i> Maxsus taklif</span>
+              <strong>Birinchi dars <b>bepul!</b></strong>
+              <p>Sinov darsiga yoziling</p>
             </div>
           </div>
         </div>
@@ -97,25 +182,40 @@
           </div>
 
           <div class="course-grid">
-            <article class="course-card">
-              <div class="card-icon blue"><i class="fa-brands fa-html5"></i></div>
-              <h3>Frontend Development</h3>
-              <p>HTML, CSS, JavaScript va React orqali zamonaviy saytlar.</p>
-              <span>5 oy</span>
+            <article class="course-card course-web">
+              <div class="card-icon blue">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <h3>Web Developer</h3>
+              <p>Web dasturlash asoslari orqali zamonaviy sayt va ilovalar.</p>
             </article>
 
-            <article class="course-card">
-              <div class="card-icon green"><i class="fa-solid fa-server"></i></div>
-              <h3>Backend Foundation</h3>
-              <p>Node.js, ma'lumotlar bazasi va API bilan ishlash asoslari.</p>
-              <span>6 oy</span>
+            <article class="course-card course-cyber">
+              <div class="card-icon green">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3>Kiberxavfsizlik</h3>
+              <p>
+                Tizim, tarmoq va internet xavfsizligi bo'yicha amaliy bilimlar.
+              </p>
             </article>
 
-            <article class="course-card">
-              <div class="card-icon orange"><i class="fa-solid fa-palette"></i></div>
-              <h3>Web Design</h3>
-              <p>Figma, UI kitlar va foydalanuvchiga qulay interfeyslar.</p>
-              <span>3 oy</span>
+            <article class="course-card course-robotics">
+              <div class="card-icon orange">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <h3>Robototexnika</h3>
+              <p>Elektronika, sensorlar va robot qurilmalar bilan ishlash.</p>
+            </article>
+
+            <article class="course-card course-kids">
+              <div class="card-icon violet">
+                <i class="fa-solid fa-child-reaching"></i>
+              </div>
+              <h3>IT Kids</h3>
+              <p>
+                Bolalar uchun kompyuter savodxonligi va dasturlashga kirish.
+              </p>
             </article>
           </div>
         </div>
@@ -137,7 +237,10 @@
               <i class="fa-solid fa-laptop-code"></i>
               <div>
                 <h3>Amaliy darslar</h3>
-                <p>Darsda o'rganilgan mavzu shu kuniyoq loyiha ichida ishlatiladi.</p>
+                <p>
+                  Darsda o'rganilgan mavzu shu kuniyoq loyiha ichida
+                  ishlatiladi.
+                </p>
               </div>
             </div>
             <div class="advantage-item">
@@ -151,7 +254,10 @@
               <i class="fa-solid fa-briefcase"></i>
               <div>
                 <h3>Portfolio</h3>
-                <p>Kurs davomida ishga ko'rsatish mumkin bo'lgan loyihalar yig'iladi.</p>
+                <p>
+                  Kurs davomida ishga ko'rsatish mumkin bo'lgan loyihalar
+                  yig'iladi.
+                </p>
               </div>
             </div>
           </div>
@@ -181,16 +287,19 @@
             <span class="section-kicker light">Mentorlar</span>
             <h2>Tajriba faqat nazariya emas, kod bilan beriladi</h2>
             <p>
-              CodeTime darslarida mentorlar oddiy tushuntirish bilan cheklanmaydi:
-              ular siz bilan birga kod yozadi, xatoni topadi va yechimni
-              professional tartibda ko'rsatadi.
+              CodeTime darslarida mentorlar oddiy tushuntirish bilan
+              cheklanmaydi: ular siz bilan birga kod yozadi, xatoni topadi va
+              yechimni professional tartibda ko'rsatadi.
             </p>
           </div>
 
           <div class="mentor-card">
             <i class="fa-solid fa-chalkboard-user"></i>
             <h3>Live coding + review</h3>
-            <p>Har hafta guruhdagi ishlar tahlil qilinadi va keyingi qadamlar belgilanadi.</p>
+            <p>
+              Har hafta guruhdagi ishlar tahlil qilinadi va keyingi qadamlar
+              belgilanadi.
+            </p>
           </div>
         </div>
       </section>
@@ -206,13 +315,13 @@
             </p>
 
             <div class="contact-info">
-              <a href="tel:+998901234567">
+              <a href="tel:+998771867766">
                 <i class="fa-solid fa-phone-volume"></i>
-                +998 90 123 45 67
+                +998 77 186 77 66
               </a>
-              <a href="mailto:info@codetime.uz">
-                <i class="fa-solid fa-envelope"></i>
-                info@codetime.uz
+              <a href="https://t.me/codetime_admin">
+                <i class="fa-solid fa-paper-plane"></i>
+                codetime_admin
               </a>
             </div>
           </div>
@@ -229,9 +338,10 @@
             <label>
               Qiziqqan kurs
               <select>
-                <option>Frontend Development</option>
-                <option>Backend Foundation</option>
-                <option>Web Design</option>
+                <option>Web Developer</option>
+                <option>Kiberxavfsizlik</option>
+                <option>Robototexnika</option>
+                <option>IT Kids</option>
               </select>
             </label>
             <button class="btn btn-primary" type="submit">
@@ -247,11 +357,27 @@
       <div class="container footer-inner">
         <p>© 2026 CodeTime IT Academy. Barcha huquqlar himoyalangan.</p>
         <div class="socials">
-          <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a
+            target="_blank"
+            href="https://t.me/codetime_edu"
+            aria-label="Telegram"
+            ><i class="fa-brands fa-telegram"></i
+          ></a>
+          <a
+            target="_blank"
+            href="https://www.instagram.com/codetime_edu?igsh=cjNiM2JsaDZjM3h5"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a
+            target="_blank"
+            href="https://www.instagram.com/codetime_edu?igsh=cjNiM2JsaDZjM3h5"
+            aria-label="YouTube"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
         </div>
       </div>
     </footer>
+    <script src="./js/script.js"></script>
   </body>
 </html>
