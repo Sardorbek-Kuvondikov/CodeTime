@@ -20,10 +20,6 @@ export type ContactFormPayload = {
   course: CourseOption;
 };
 
-export type ContactFormSubmission = ContactFormPayload & {
-  id: string;
-};
-
 export type ContactFormFieldErrors = Partial<Record<keyof ContactFormValues, string>>;
 
 export type ContactFormResult = {
