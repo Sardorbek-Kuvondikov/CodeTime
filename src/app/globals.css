@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "../../css/normalize.css";
+@import "../../css/main.css";
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.field-error {
+  margin-top: 6px;
+  color: #fca5a5;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.form-message {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.success-message {
+  color: #ecfccb;
+  background: rgba(198, 242, 78, 0.12);
+  border: 1px solid rgba(198, 242, 78, 0.28);
+}
+
+.error-message {
+  color: #fecaca;
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.28);
+}
